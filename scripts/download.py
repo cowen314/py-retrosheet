@@ -61,9 +61,9 @@ if config.getboolean('download', 'dl_eventfiles'):
 
     # parse retrosheet page for files and add urls to the queue
     retrosheet_url = config.get('retrosheet', 'eventfiles_url')
-    pattern = r'(\d{4}?)eve\.zip'
+    pattern = rb'(\d{4}?)eve\.zip'
     html = urllib.request.urlopen(retrosheet_url).read()
-    matches = re.finditer(pattern, html, re.S)
+    matches = re.finditer(pattern, html, flags = re.S)
     for match in matches:
     
         # if we are looking for a year and this isnt the one, skip it
@@ -71,8 +71,8 @@ if config.getboolean('download', 'dl_eventfiles'):
             continue
         
         # compile absolute url and add to queue
-        url = 'http://www.retrosheet.org/events/%seve.zip' % match.group(1)
-        queue.put(url)
+        url = b'http://www.retrosheet.org/events/%seve.zip' % match.group(1)
+        queue.put(url.decode('utf-8'))
 
 #################################
 # Queue Game Logs for Download #
@@ -98,8 +98,8 @@ if config.getboolean('download', 'dl_gamelogs'):
             continue
         
         # compile absolute url and add to queue
-        url = 'http://www.retrosheet.org/gamelogs/gl%s.zip' % match.group(1)
-        queue.put(url)
+        url = b'http://www.retrosheet.org/gamelogs/gl%s.zip' % match.group(1)
+        queue.put(url.decode('utf-8'))
 
 ##################
 # Download Files #
