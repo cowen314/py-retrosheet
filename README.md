@@ -1,14 +1,14 @@
 PY-RETROSHEET
 =============
 
-Python scripts for Retrosheet data downloading and parsing.
+Python scripts for Retrosheet data downloading and parsing (a Python 3 fork!).
 
 YE REQUIREMENTS
 ---------------
 
 - Chadwick 0.6.2 http://chadwick.sourceforge.net/
 
-- python 2.5+ (don't know about 3.0, sorry)
+- python 3
 
 - sqlalchemy: http://www.sqlalchemy.org/
 
